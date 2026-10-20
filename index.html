@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLA Fornecedores — Jornada Enxoval · 20/10/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF7;
+    --bg-soft: #F2EFE8;
+    --ink: #1A1A17;
+    --ink-2: #4D4D45;
+    --ink-3: #7A7A70;
+    --line: #D9D5CA;
+    --line-soft: #E8E4D9;
+    --coral: #EB615E;
+    --coral-deep: #B8362F;
+    --ok: #4A6B4A;
+    --warn: #A67A1A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 64px 48px 96px;
+  }
+
+  /* HEADER */
+  header {
+    display: grid;
+    grid-template-columns: 72px 1fr auto;
+    gap: 32px;
+    align-items: start;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+  .logo svg { width: 56px; height: auto; display: block; }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 600px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--coral);
+  }
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    text-align: right;
+    line-height: 1.8;
+  }
+  .meta strong { color: var(--ink); font-weight: 500; }
+
+  /* SECTION */
+  section { margin-top: 72px; }
+  .sec-head {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 32px;
+    align-items: baseline;
+    margin-bottom: 32px;
+  }
+  .sec-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 48px;
+    color: var(--coral);
+    line-height: 1;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+  .sec-sub {
+    font-size: 14px;
+    color: var(--ink-2);
+    margin-top: 8px;
+  }
+  .sec-body {
+    padding-left: 104px;
+  }
+
+  /* STAT STRIP */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin: 0;
+  }
+  .stat {
+    background: var(--bg);
+    padding: 24px 20px;
+  }
+  .stat-label {
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+  }
+  .stat-value {
+    font-family: 'Fraunces', serif;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat-value.coral { color: var(--coral); }
+  .stat-note {
+    font-size: 11.5px;
+    color: var(--ink-3);
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* PROSE */
+  p { margin-bottom: 14px; color: var(--ink-2); }
+  p strong { color: var(--ink); font-weight: 600; }
+  .prose-lead {
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.5;
+    max-width: 640px;
+  }
+
+  /* TABLE */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 20px 0;
+  }
+  thead th {
+    text-align: left;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--ink);
+    background: transparent;
+  }
+  tbody td {
+    padding: 12px;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: top;
+  }
+  tbody tr:hover { background: var(--bg-soft); }
+  td.num, th.num { font-family: 'JetBrains Mono', monospace; text-align: right; font-variant-numeric: tabular-nums; }
+  td.card { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12.5px; }
+
+  /* KEY-VALUE LIST */
+  .kv {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    row-gap: 10px;
+    column-gap: 24px;
+    margin: 16px 0 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .kv dt { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); padding-top: 2px; }
+  .kv dd { font-size: 14px; color: var(--ink); }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--bg-soft);
+    padding: 24px 28px;
+    margin: 20px 0;
+    position: relative;
+  }
+  .callout-tag {
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--coral-deep);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+
+  blockquote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--ink);
+    padding: 8px 0 8px 20px;
+    border-left: 1px solid var(--coral);
+    margin: 20px 0;
+    max-width: 580px;
+  }
+  blockquote cite {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-style: normal;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: 10px;
+  }
+
+  /* HISTOGRAM */
+  .hist {
+    display: grid;
+    grid-template-columns: 48px 1fr 48px;
+    gap: 10px;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    padding: 4px 0;
+  }
+  .hist-label { color: var(--ink-3); }
+  .hist-bar {
+    height: 8px;
+    background: var(--coral);
+    border-radius: 1px;
+  }
+  .hist-count { color: var(--ink); text-align: right; }
+
+  /* TAGS */
+  .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid var(--line);
+    color: var(--ink-2);
+    font-family: 'JetBrains Mono', monospace;
+    margin-right: 4px;
+  }
+  .tag.coral { border-color: var(--coral); color: var(--coral-deep); }
+  .tag.ok { border-color: var(--ok); color: var(--ok); }
+
+  /* FOOTER */
+  footer {
+    margin-top: 96px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 760px) {
+    .wrap { padding: 40px 24px 72px; }
+    header { grid-template-columns: 48px 1fr; }
+    .meta { grid-column: 2; text-align: left; margin-top: 12px; }
+    h1 { font-size: 32px; }
+    .sec-head { grid-template-columns: 48px 1fr; gap: 20px; }
+    .sec-num { font-size: 36px; }
+    .sec-body { padding-left: 0; }
+    h2 { font-size: 22px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .kv { grid-template-columns: 1fr; row-gap: 4px; }
+    .kv dd { margin-bottom: 10px; }
+    table { font-size: 12px; }
+    thead th, tbody td { padding: 8px 6px; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .wrap { max-width: none; padding: 24px; }
+    section { page-break-inside: avoid; }
+    tbody tr:hover { background: transparent; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 564 575" fill="none" aria-label="Seazone">
+      <path d="M543.226 178.172L442.93 119.392C443.194 117.952 443.72 116.643 443.72 115.203V26.5752C443.72 11.913 431.743 0 417.001 0H363.562C348.821 0 336.843 11.913 336.843 26.5752V57.6015L300.516 36.3936C285.774 27.6225 266.294 29.0626 252.605 39.1428C252.342 39.2737 252.079 39.2737 251.947 39.4046L20.951 172.543C1.73419 183.932 -6.29474 210.507 5.55122 230.406C17.9237 251.09 45.301 256.588 64.5178 245.199L78.3381 237.213C62.017 269.025 51.7505 305.026 51.7505 344.169C51.7505 406.221 75.7056 467.226 119.799 511.344C137.173 528.624 157.443 543.156 179.555 553.759C196.666 562.007 214.567 568.814 233.257 572.218C258.002 576.669 283.8 574.444 308.808 574.444C335.922 574.444 363.036 574.444 390.018 574.444C414.5 574.444 439.113 574.575 463.99 574.575C470.176 574.575 476.231 573.004 481.759 570.254C488.866 566.72 492.947 562.792 497.685 556.509C502.95 549.57 506.635 541.061 506.635 532.159V252.923C525.062 259.599 547.306 253.839 558.363 235.511C570.34 215.613 562.311 189.038 542.963 177.648L543.226 178.172ZM427.794 348.751C427.794 433.582 370.012 502.573 282.878 502.573C195.745 502.573 131.777 429.131 131.777 344.3C131.777 259.468 195.745 188.776 282.878 188.776C370.012 188.776 427.794 254.232 427.794 338.147V348.751Z" fill="#EB615E"/>
+    </svg>
+  </div>
+  <div>
+    <div class="eyebrow">BackOffice Franquias · Jornada Enxoval</div>
+    <h1>SLA de fornecedores — <em>pedidos travados</em> em Aguardando Link e Aguardando Pagamento</h1>
+  </div>
+  <div class="meta">
+    20 · OUT · 2026<br>
+    <strong>20h00 BRT</strong><br>
+    Rayanne Oliveira<br>
+    &nbsp;<br>
+    Fonte: MCP enxoval<br>
+    Base: 143 cards vivos
+  </div>
+</header>
+
+<!-- VISÃO GERAL -->
+<section id="visao">
+  <div class="sec-head">
+    <div class="sec-num">00</div>
+    <div>
+      <h2>Visão geral</h2>
+      <div class="sec-sub">Fotografia do funil hoje às 20h BRT.</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <p class="prose-lead">143 cards parados no fluxo de pagamento, somando <strong>R$ 350.651,77</strong> em espera. O gargalo não está em Aguardando Link — está em Aguardando Pagamento, onde a mediana é de 12 dias na fase.</p>
+
+    <div class="stats" style="margin-top: 28px;">
+      <div class="stat">
+        <div class="stat-label">Total parado</div>
+        <div class="stat-value">143</div>
+        <div class="stat-note">cards vivos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Valor retido</div>
+        <div class="stat-value coral">R$ 350k</div>
+        <div class="stat-note">R$ 350.651,77</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Aguardando Link</div>
+        <div class="stat-value">16</div>
+        <div class="stat-note">R$ 40.763,62</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Aguardando Pagamento</div>
+        <div class="stat-value">127</div>
+        <div class="stat-note">R$ 309.888,15</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §1 -->
+<section id="link">
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <div>
+      <h2>Aguardando Link — fluxo "zerado" hoje</h2>
+      <div class="sec-sub">16 cards. Todos entraram na fase nas últimas 24h.</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <p><strong>12 de 16 cards são bounce</strong> — o link já tinha sido gerado antes e voltou. Houve movimentação pesada hoje de <code>caroline.costa@seazone</code> e <code>samuel.peixoto@seazone</code> re-emitindo links. Dois cards (ETR0101 e FBS0260) foram criados após o corte das 20h BRT e entram no funil amanhã.</p>
+
+    <p>Perfil novo (sem bounce, maior risco de ficar parado): <strong>AG-RBBO0025</strong> (Erica Bianca · BA) e <strong>AG-RMSB1803</strong> (Maria Carolina · BA).</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Card</th>
+          <th>Fornecedor</th>
+          <th>Entrou</th>
+          <th class="num">Aberto (h)</th>
+          <th class="num">Valor</th>
+          <th>Franquia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="card">AG-RMSB1803</td><td>Matinali</td><td>20/10 11:32</td><td class="num">7,5</td><td class="num">R$ 2.401,10</td><td>Maria Carolina Rodrigues</td></tr>
+        <tr><td class="card">AG-RBBO0025</td><td>Matinali</td><td>20/10 15:25</td><td class="num">3,5</td><td class="num">R$ 3.859,19</td><td>Erica Bianca</td></tr>
+        <tr><td class="card">AG-RNED0801</td><td>Matinali</td><td>20/10 16:41</td><td class="num">2,3</td><td class="num">R$ 1.459,07</td><td>Lucas Sena</td></tr>
+        <tr><td class="card">P-50053</td><td>Matinali</td><td>20/10 16:43</td><td class="num">2,2</td><td class="num">R$ 2.317,94</td><td>Izana Serra Lima</td></tr>
+        <tr><td class="card">P-50033</td><td>RM Enxoval</td><td>20/10 16:53</td><td class="num">2,1</td><td class="num">R$ 4.387,80</td><td>Flávio Porto</td></tr>
+        <tr><td colspan="6" style="text-align:center; color: var(--ink-3); padding: 10px; font-size: 12px; font-family: 'JetBrains Mono', monospace;">+ 11 cards com &lt; 2,5h de abertura</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-size: 13px; color: var(--ink-3);">Nenhum card estourou SLA ainda. O mais antigo (AG-RMSB1803) tem 7,5h aberto e ainda restam 16,6h dentro do contrato de 24h.</p>
+  </div>
+</section>
+
+<!-- §2 -->
+<section id="pagamento">
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <div>
+      <h2>Aguardando Pagamento — o gargalo real</h2>
+      <div class="sec-sub">127 cards. Mediana de 12 dias na fase.</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <p class="prose-lead">Aqui está onde o fluxo trava. Metade dos cards ultrapassa 12 dias esperando o pagamento do proprietário, e um pedido chegou a ser reemitido <strong>6 vezes</strong> sem sucesso de cobrança.</p>
+
+    <dl class="kv">
+      <dt>Mediana</dt><dd><strong>12 dias</strong> na fase</dd>
+      <dt>Máximo</dt><dd><strong>22 dias</strong> parados</dd>
+      <dt>Cards com ≥14 dias</dt><dd><strong>55 cards (43%)</strong> · R$ 124.054,53</dd>
+      <dt>Cards com bounce</dt><dd><strong>70 cards (55%)</strong> — link expirou e foi reemitido</dd>
+      <dt>Distribuição do bounce</dt><dd>51 cards com 2 entradas · 18 cards com 3 entradas · <strong>1 card com 6 entradas</strong></dd>
+    </dl>
+
+    <table>
+      <thead>
+        <tr>
+          <th colspan="6" style="padding-top: 20px;">Casos críticos — 22 dias parados, R$ ≥ 2k</th>
+        </tr>
+        <tr>
+          <th>Card</th>
+          <th>Fornecedor</th>
+          <th class="num">Valor</th>
+          <th>Franquia</th>
+          <th>Imóvel</th>
+          <th>Bounce</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="card">AG-MFVA0402</td><td>Matinali</td><td class="num">R$ 2.567,64</td><td>Bernardo Lana</td><td class="card">FVA0402</td><td>—</td></tr>
+        <tr><td class="card">AG-MCVB0133</td><td>Matinali</td><td class="num">R$ 3.954,47</td><td>Glauciene Santos</td><td class="card">CVB0133</td><td>—</td></tr>
+        <tr><td class="card">AG-MRNM0016</td><td>Matinali</td><td class="num">R$ 3.595,13</td><td>Patrícia Melo</td><td class="card">RNM0016</td><td>—</td></tr>
+        <tr><td class="card">P-50019</td><td>Matinali</td><td class="num">R$ 2.666,78</td><td>Caroline Vaghetti</td><td class="card">PVZ0485</td><td>—</td></tr>
+        <tr><td class="card">P-2066</td><td>Matinali</td><td class="num">R$ 3.643,15</td><td>Wolnei Ramos</td><td class="card">RCB0304</td><td><span class="tag coral">↻</span></td></tr>
+        <tr><td class="card">AG-MASP1003</td><td>Matinali</td><td class="num">R$ 2.836,62</td><td>Bernardo Lana</td><td class="card">ASP1003</td><td><span class="tag coral">↻</span></td></tr>
+        <tr><td class="card">AG-MJGO0302</td><td>Matinali</td><td class="num">R$ 2.860,82</td><td>Naihana Loyola</td><td class="card">JGO0302</td><td><span class="tag coral">↻</span></td></tr>
+        <tr><td class="card">P-0031</td><td>Matinali</td><td class="num">R$ 2.317,94</td><td>Matias Trindade</td><td class="card">CAO0801</td><td><span class="tag coral">↻</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- §3 — SLA e Acordo -->
+<section id="sla">
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <div>
+      <h2>Compliance do acordo com fornecedores</h2>
+      <div class="sec-sub">139 transições Aguardando Link → Aguardando Pagamento nos últimos ~22 dias.</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <p>Contrato define <strong>24h máximas</strong> para o fornecedor gerar o link após o pedido entrar em Aguardando Link. Além do contrato, dois acordos informais foram firmados: a <strong>Matinali</strong> mantém uma pessoa dedicada só a esse fluxo; a <strong>RM Enxoval</strong> atualiza em janelas fixas de 11h e 17h — na reunião Interface Implantação × Fornecedores, Samuel pediu para a RM migrar o segundo turno para 16h, e eles estão adaptando.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Fornecedor</th>
+          <th class="num">Amostra</th>
+          <th class="num">Mediana</th>
+          <th class="num">Dentro de 24h</th>
+          <th class="num">Dentro de 8h</th>
+          <th>Veredito</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Matinali</strong></td>
+          <td class="num">126</td>
+          <td class="num">6,5h</td>
+          <td class="num">77%</td>
+          <td class="num">52%</td>
+          <td><span class="tag ok">Cumpre</span> em dia útil · <span class="tag coral">Trava</span> em feriado</td>
+        </tr>
+        <tr>
+          <td><strong>RM Enxoval</strong></td>
+          <td class="num">13</td>
+          <td class="num">14,1h</td>
+          <td class="num">85%</td>
+          <td class="num">46%</td>
+          <td><span class="tag ok">Cumpre</span> · janela 11h/16h bate com o acordo</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 32px 0 8px;">Horário em que a RM efetivamente gerou o link</h3>
+    <p style="font-size: 13px; color: var(--ink-3);">Picos exatamente nas janelas acordadas (11h e 16h). A migração 17h → 16h já está acontecendo.</p>
+
+    <div style="margin-top: 20px;">
+      <div class="hist"><span class="hist-label">07h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
+      <div class="hist"><span class="hist-label">08h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
+      <div class="hist"><span class="hist-label">09h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
+      <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">11h</span><div class="hist-bar" style="width: 30%;"></div><span class="hist-count">3</span></div>
+      <div class="hist"><span class="hist-label">13h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
+      <div class="hist"><span class="hist-label">14h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
+      <div class="hist"><span class="hist-label">15h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
+      <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">16h</span><div class="hist-bar" style="width: 30%;"></div><span class="hist-count">3</span></div>
+      <div class="hist"><span class="hist-label" style="color: var(--ink-3);">17h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
+    </div>
+
+    <div class="callout" style="margin-top: 36px;">
+      <div class="callout-tag">Risco · Matinali em feriado</div>
+      <p>Os 29 estouros de 24h da Matinali estão concentrados em dias pós-fim-de-semana e feriado. Seis cards movidos em <strong>13/10 pela manhã</strong> acumularam entre <strong>87h e 94h</strong> — todos gerados por <code>vendas09.matinali@gmail.com</code> depois do feriado prolongado de Nossa Senhora Aparecida.</p>
+      <p>A "pessoa dedicada" da Matinali não cobre folga. O SLA de 24h vira 90h+ quando o pedido cai na sexta à noite. Vale avaliar com a Matinali se cabe cobertura em dia não-útil ou janela extra no sábado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- §4 — Observações da Larissa -->
+<section id="larissa">
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <div>
+      <h2>Observações da Larissa (20/10)</h2>
+      <div class="sec-sub">Cobrança operacional, alinhamento com a Sabrina (Matinali) e nova diretriz de monitoramento.</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <p>Larissa Rodrigues Constantino (Backoffice Franquias / time Thiago Pinto) cobrou pelo Slack 4 cards que ultrapassaram a janela de atualização dos fornecedores:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Card</th>
+          <th>Imóvel</th>
+          <th class="num">Valor</th>
+          <th>Entrou Ag. Link</th>
+          <th>Link gerado</th>
+          <th class="num">SLA real</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="card">AG-MCDZ0602</td><td>CDZ0602 Itapema/SC</td><td class="num">R$ 2.738,14</td><td>16/10 10:59</td><td>20/10 13:30</td><td class="num" style="color: var(--coral-deep); font-weight: 600;">4d 2h30</td></tr>
+        <tr><td class="card">AG-MCRY0310</td><td>CRY0310 Goiânia/GO</td><td class="num">R$ 1.361,59</td><td>19/10 14:23</td><td>20/10 13:31</td><td class="num" style="color: var(--warn);">23h</td></tr>
+        <tr><td class="card">P-50086</td><td>BHC0604 Penha/SC</td><td class="num">R$ 3.159,91</td><td>20/10 09:37</td><td>20/10 11:40</td><td class="num" style="color: var(--ok);">2h03</td></tr>
+        <tr><td class="card">P-50085</td><td>RPB0068 Florianópolis/SC</td><td class="num">R$ 2.708,54</td><td>19/10 17:16</td><td>20/10 11:41</td><td class="num">18h25</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-tag">CDZ0602 e CRY0310 · causa da trava</div>
+      <p>Não foi atraso operacional da Matinali. A <strong>franquia identificou erro na configuração das camas</strong> nos dois imóveis e <strong>procurou o fornecedor direto</strong>. A Matinali então acionou o Backoffice pra validar, e o combinado foi: <strong>a franquia precisa dar visibilidade à Implantação pra corrigir a configuração</strong> antes de o link ir pra frente. Enquanto isso, o card ficou parado na fase.</p>
+      <p>Comentários registrados confirmam:</p>
+      <p style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--ink-2); margin-top: 4px;">
+        <strong>CDZ0602</strong> · 16/10 14:31 — <em>"Em contato com a franquia, configuração do imóvel 2 camas casal e 2 camas queen"</em><br>
+        <strong>CRY0310</strong> · 20/10 11:41 — <em>"Em contato direto com a franquia"</em>
+      </p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-tag">P-50086 e P-50085 · cobrança operacional</div>
+      <p>Esses dois eram pedidos limpos, sem trava de configuração. Alinhamento firmado com a <strong>Sabrina (Matinali)</strong> na mesma hora:</p>
+      <ul style="margin: 10px 0 10px 20px; color: var(--ink-2);">
+        <li>Sabrina sobe o link <strong>conforme o pedido cai</strong> — ele vem direto do agente, já está adicionado, não cabe segurar.</li>
+        <li>Se a franquia identificar erro de configuração, caminho é <strong>falar com Implantação</strong>, não resolver direto com fornecedor.</li>
+      </ul>
+      <p>Após o alinhamento, os cards ganharam link em até 2h (P-50086: 2h03; P-50085: liberado na janela de 11:41 BRT).</p>
+    </div>
+
+    <blockquote>
+      "se tudo que passar de 30 minutos vier notificação pra ver com a Matinali vai ser inviável"
+      <cite>Rayanne Oliveira · 20/10 · 18h19</cite>
+    </blockquote>
+
+    <p>Larissa concorda. Monitorar &gt;30 min não vira gatilho; segue como análise caso-a-caso quando houver sinal de insatisfação do proprietário ou valor relevante parado.</p>
+
+    <div class="callout" style="background: #FFFCF0; border-top: 2px solid var(--warn);">
+      <div class="callout-tag" style="color: var(--warn);">Observação cruzada com a §3</div>
+      <p>Os 4 dias de CDZ0602 não contam como falha de SLA da Matinali — foi fluxo quebrado por entrada paralela da franquia. Mas evidenciam um <strong>padrão a corrigir no fluxo</strong>: franquia → fornecedor direto, sem passar pelo Implantação, trava o card e cria interlocução que a Matinali não deveria estar carregando. O alinhamento com a Sabrina já endereça isso daqui pra frente.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Jornada Enxoval · BackOffice Franquias · Seazone</span>
+  <span>Gerado em 20/10/2026 · 20h BRT</span>
+</footer>
+
+</div>
+</body>
+</html>
