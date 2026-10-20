@@ -299,6 +299,7 @@
     .kv dd { margin-bottom: 10px; }
     table { font-size: 12px; }
     thead th, tbody td { padding: 8px 6px; }
+    .sec-body > div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 32px !important; }
   }
 
   @media print {
@@ -499,19 +500,37 @@
       </tbody>
     </table>
 
-    <h3 style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 32px 0 8px;">Horário em que a RM efetivamente gerou o link</h3>
-    <p style="font-size: 13px; color: var(--ink-3);">Picos exatamente nas janelas acordadas (11h e 16h). A migração 17h → 16h já está acontecendo.</p>
-
-    <div style="margin-top: 20px;">
-      <div class="hist"><span class="hist-label">07h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
-      <div class="hist"><span class="hist-label">08h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
-      <div class="hist"><span class="hist-label">09h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
-      <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">11h</span><div class="hist-bar" style="width: 30%;"></div><span class="hist-count">3</span></div>
-      <div class="hist"><span class="hist-label">13h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
-      <div class="hist"><span class="hist-label">14h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
-      <div class="hist"><span class="hist-label">15h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
-      <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">16h</span><div class="hist-bar" style="width: 30%;"></div><span class="hist-count">3</span></div>
-      <div class="hist"><span class="hist-label" style="color: var(--ink-3);">17h</span><div class="hist-bar" style="width: 10%;"></div><span class="hist-count">1</span></div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 32px;">
+      <div>
+        <h3 style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 8px;">RM Enxoval — horário em que gerou o link</h3>
+        <p style="font-size: 13px; color: var(--ink-3); margin-bottom: 16px;">Picos nas janelas acordadas (11h e 16h). Migração 17h → 16h em curso.</p>
+        <div class="hist"><span class="hist-label">07h</span><div class="hist-bar" style="width: 33%;"></div><span class="hist-count">1</span></div>
+        <div class="hist"><span class="hist-label">08h</span><div class="hist-bar" style="width: 33%;"></div><span class="hist-count">1</span></div>
+        <div class="hist"><span class="hist-label">09h</span><div class="hist-bar" style="width: 33%;"></div><span class="hist-count">1</span></div>
+        <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">11h</span><div class="hist-bar" style="width: 100%;"></div><span class="hist-count">3</span></div>
+        <div class="hist"><span class="hist-label">13h</span><div class="hist-bar" style="width: 33%;"></div><span class="hist-count">1</span></div>
+        <div class="hist"><span class="hist-label">14h</span><div class="hist-bar" style="width: 33%;"></div><span class="hist-count">1</span></div>
+        <div class="hist"><span class="hist-label">15h</span><div class="hist-bar" style="width: 33%;"></div><span class="hist-count">1</span></div>
+        <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">16h</span><div class="hist-bar" style="width: 100%;"></div><span class="hist-count">3</span></div>
+        <div class="hist"><span class="hist-label" style="color: var(--ink-3);">17h</span><div class="hist-bar" style="width: 33%;"></div><span class="hist-count">1</span></div>
+      </div>
+      <div>
+        <h3 style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 8px;">Matinali — horário em que gerou o link</h3>
+        <p style="font-size: 13px; color: var(--ink-3); margin-bottom: 16px;">Distribuído ao longo do dia, com picos em 11h, 14h e 16h. Aparecem envios noturnos (00h, 01h, 23h).</p>
+        <div class="hist"><span class="hist-label" style="color: var(--ink-3);">00h</span><div class="hist-bar" style="width: 18%;"></div><span class="hist-count">4</span></div>
+        <div class="hist"><span class="hist-label" style="color: var(--ink-3);">01h</span><div class="hist-bar" style="width: 5%;"></div><span class="hist-count">1</span></div>
+        <div class="hist"><span class="hist-label">08h</span><div class="hist-bar" style="width: 55%;"></div><span class="hist-count">12</span></div>
+        <div class="hist"><span class="hist-label">09h</span><div class="hist-bar" style="width: 41%;"></div><span class="hist-count">9</span></div>
+        <div class="hist"><span class="hist-label">10h</span><div class="hist-bar" style="width: 59%;"></div><span class="hist-count">13</span></div>
+        <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">11h</span><div class="hist-bar" style="width: 95%;"></div><span class="hist-count">21</span></div>
+        <div class="hist"><span class="hist-label">13h</span><div class="hist-bar" style="width: 14%;"></div><span class="hist-count">3</span></div>
+        <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">14h</span><div class="hist-bar" style="width: 100%;"></div><span class="hist-count">22</span></div>
+        <div class="hist"><span class="hist-label">15h</span><div class="hist-bar" style="width: 23%;"></div><span class="hist-count">5</span></div>
+        <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">16h</span><div class="hist-bar" style="width: 91%;"></div><span class="hist-count">20</span></div>
+        <div class="hist"><span class="hist-label">17h</span><div class="hist-bar" style="width: 50%;"></div><span class="hist-count">11</span></div>
+        <div class="hist"><span class="hist-label" style="color: var(--ink-3);">18h</span><div class="hist-bar" style="width: 5%;"></div><span class="hist-count">1</span></div>
+        <div class="hist"><span class="hist-label" style="color: var(--ink-3);">23h</span><div class="hist-bar" style="width: 18%;"></div><span class="hist-count">4</span></div>
+      </div>
     </div>
 
   </div>
