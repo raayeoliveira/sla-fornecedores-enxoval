@@ -463,11 +463,12 @@
     <div class="sec-num">03</div>
     <div>
       <h2>Compliance do acordo com fornecedores</h2>
-      <div class="sec-sub">218 transições Aguardando Link → Aguardando Pagamento nos últimos 30 dias (20/09 a 20/10).</div>
+      <div class="sec-sub">203 transições Aguardando Link → Aguardando Pagamento nos últimos 30 dias (20/09 a 20/10) · desconsiderando fins de semana e feriados.</div>
     </div>
   </div>
   <div class="sec-body">
     <p>Contrato define <strong>24h máximas</strong> para o fornecedor gerar o link após o pedido entrar em Aguardando Link. Além do contrato, dois acordos informais foram firmados: a <strong>Matinali</strong> mantém uma pessoa dedicada só a esse fluxo; a <strong>RM Enxoval</strong> atualiza em janelas fixas de 11h e 17h — na reunião Interface Implantação × Fornecedores, Samuel pediu para a RM migrar o segundo turno para 16h, e eles estão adaptando.</p>
+    <p style="font-size: 13px; color: var(--ink-3);">A amostra abaixo considera apenas transições que começaram e terminaram em <strong>dias úteis</strong> (fins de semana e feriados nacionais excluídos — 12/10 Nossa Senhora Aparecida, 20 e 21/09 fim de semana, etc.).</p>
 
     <table>
       <thead>
@@ -483,18 +484,18 @@
       <tbody>
         <tr>
           <td><strong>Matinali</strong></td>
-          <td class="num">185</td>
-          <td class="num">6,5h</td>
-          <td class="num">78%</td>
-          <td class="num">51%</td>
-          <td><span class="tag ok">Cumpre</span> em dia útil · <span class="tag coral">Trava</span> em feriado</td>
+          <td class="num">172</td>
+          <td class="num">5,3h</td>
+          <td class="num">83%</td>
+          <td class="num">55%</td>
+          <td><span class="tag ok">Cumpre</span> o SLA de 24h em dia útil</td>
         </tr>
         <tr>
           <td><strong>RM Enxoval</strong></td>
-          <td class="num">33</td>
-          <td class="num">14,1h</td>
-          <td class="num">85%</td>
-          <td class="num">48%</td>
+          <td class="num">31</td>
+          <td class="num">4,5h</td>
+          <td class="num">90%</td>
+          <td class="num">52%</td>
           <td><span class="tag ok">Cumpre</span> · janela 11h/16h bate com o acordo</td>
         </tr>
       </tbody>
@@ -502,31 +503,31 @@
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 32px;">
       <div>
-        <h3 style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 8px;">RM Enxoval — horário em que gerou o link <span style="font-style: italic; color: var(--ink-3); font-weight: 400;">(últimos 30 dias)</span></h3>
-        <p style="font-size: 13px; color: var(--ink-3); margin-bottom: 16px;">33 transições em 30 dias. Picos nas janelas acordadas (11h e 16h). Aparece também um pico em 14h e migração 17h → 16h em curso.</p>
+        <h3 style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 8px;">RM Enxoval — horário em que gerou o link <span style="font-style: italic; color: var(--ink-3); font-weight: 400;">(dias úteis, últimos 30 dias)</span></h3>
+        <p style="font-size: 13px; color: var(--ink-3); margin-bottom: 16px;">31 transições em dias úteis. Picos nas janelas acordadas (11h e 16h). Aparece também um pico em 14h e migração 17h → 16h em curso.</p>
         <div class="hist"><span class="hist-label">07h</span><div class="hist-bar" style="width: 29%;"></div><span class="hist-count">2</span></div>
         <div class="hist"><span class="hist-label">08h</span><div class="hist-bar" style="width: 43%;"></div><span class="hist-count">3</span></div>
         <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">11h</span><div class="hist-bar" style="width: 100%;"></div><span class="hist-count">7</span></div>
         <div class="hist"><span class="hist-label">13h</span><div class="hist-bar" style="width: 29%;"></div><span class="hist-count">2</span></div>
         <div class="hist"><span class="hist-label">14h</span><div class="hist-bar" style="width: 100%;"></div><span class="hist-count">7</span></div>
-        <div class="hist"><span class="hist-label">15h</span><div class="hist-bar" style="width: 43%;"></div><span class="hist-count">3</span></div>
+        <div class="hist"><span class="hist-label">15h</span><div class="hist-bar" style="width: 14%;"></div><span class="hist-count">1</span></div>
         <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">16h</span><div class="hist-bar" style="width: 86%;"></div><span class="hist-count">6</span></div>
         <div class="hist"><span class="hist-label" style="color: var(--ink-3);">17h</span><div class="hist-bar" style="width: 29%;"></div><span class="hist-count">2</span></div>
         <div class="hist"><span class="hist-label" style="color: var(--ink-3);">18h</span><div class="hist-bar" style="width: 14%;"></div><span class="hist-count">1</span></div>
       </div>
       <div>
-        <h3 style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 8px;">Matinali — horário em que gerou o link <span style="font-style: italic; color: var(--ink-3); font-weight: 400;">(últimos 30 dias)</span></h3>
-        <p style="font-size: 13px; color: var(--ink-3); margin-bottom: 16px;">185 transições em 30 dias. Distribuição concentrada no horário comercial, com pico forte em 14h e segunda janela em 16h-17h. Sem acordo de janelas fixas — a pessoa dedicada sobe conforme o pedido cai.</p>
-        <div class="hist"><span class="hist-label">08h</span><div class="hist-bar" style="width: 40%;"></div><span class="hist-count">18</span></div>
+        <h3 style="font-family: 'Fraunces', serif; font-weight: 500; font-size: 19px; margin: 0 0 8px;">Matinali — horário em que gerou o link <span style="font-style: italic; color: var(--ink-3); font-weight: 400;">(dias úteis, últimos 30 dias)</span></h3>
+        <p style="font-size: 13px; color: var(--ink-3); margin-bottom: 16px;">172 transições em dias úteis. Distribuição concentrada no horário comercial, com pico forte em 14h e segunda janela em 16h-17h. Sem acordo de janelas fixas — a pessoa dedicada sobe conforme o pedido cai.</p>
+        <div class="hist"><span class="hist-label">08h</span><div class="hist-bar" style="width: 31%;"></div><span class="hist-count">14</span></div>
         <div class="hist"><span class="hist-label">09h</span><div class="hist-bar" style="width: 33%;"></div><span class="hist-count">15</span></div>
         <div class="hist"><span class="hist-label">10h</span><div class="hist-bar" style="width: 51%;"></div><span class="hist-count">23</span></div>
         <div class="hist"><span class="hist-label">11h</span><div class="hist-bar" style="width: 36%;"></div><span class="hist-count">16</span></div>
         <div class="hist"><span class="hist-label" style="color: var(--ink-3);">12h</span><div class="hist-bar" style="width: 2%;"></div><span class="hist-count">1</span></div>
-        <div class="hist"><span class="hist-label">13h</span><div class="hist-bar" style="width: 13%;"></div><span class="hist-count">6</span></div>
+        <div class="hist"><span class="hist-label">13h</span><div class="hist-bar" style="width: 7%;"></div><span class="hist-count">3</span></div>
         <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">14h</span><div class="hist-bar" style="width: 100%;"></div><span class="hist-count">45</span></div>
         <div class="hist"><span class="hist-label">15h</span><div class="hist-bar" style="width: 29%;"></div><span class="hist-count">13</span></div>
-        <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">16h</span><div class="hist-bar" style="width: 56%;"></div><span class="hist-count">25</span></div>
-        <div class="hist"><span class="hist-label">17h</span><div class="hist-bar" style="width: 51%;"></div><span class="hist-count">23</span></div>
+        <div class="hist"><span class="hist-label" style="color: var(--coral-deep); font-weight: 600;">16h</span><div class="hist-bar" style="width: 51%;"></div><span class="hist-count">23</span></div>
+        <div class="hist"><span class="hist-label">17h</span><div class="hist-bar" style="width: 42%;"></div><span class="hist-count">19</span></div>
       </div>
     </div>
 
